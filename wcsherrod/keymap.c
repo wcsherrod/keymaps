@@ -142,7 +142,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_QWERTY] = LAYOUT(
       KC_ESC,       KC_Q,   KC_W,   KC_E,   KC_R,   KC_T,                                                    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_MINS,
       LSFT_T(KC_TAB),  LSFT_T(KC_A),   LCTL_T(KC_S),   KC_D,   KC_F,   KC_G,                                         KC_H,    KC_J,    KC_K,    RCTL_T(KC_L)  ,    RSFT_T(KC_SCLN), RSFT_T(KC_QUOT),
-      KC_LSPO,                 KC_Z,   KC_X,   KC_C,   KC_V,   KC_B,   LT(_LOWER, KC_DEL),   KC_LALT, KC_LSFT, KC_DEL, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSPC,
+      KC_LSPO,                 KC_Z,   KC_X,   KC_C,   KC_V,   KC_B,   LT(_LOWER, KC_DEL), KC_LALT, KC_LSFT, LT(_LOWER, KC_DEL), KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSPC,
               KC_RCTL, KC_LGUI, MT(MOD_LCTL, KC_BSPC), LT(_RAISE, KC_SPC), LT(_LOWER, KC_ENT), KC_LGUI, LT(_RAISE, KC_BSPC), L_BACKW, KC_RGUI, TD(QUAD)
     ),
 
@@ -168,10 +168,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                        `----------------------------------'  `----------------------------------'
  */
     [_LOWER] = LAYOUT(
-      _______, KC_EXLM, KC_AT,   KC_LCBR, KC_RCBR, KC_PIPE,                                     _______, _______, _______, KC_LBRC, KC_RBRC, KC_PIPE,
-      KC_TAB,  KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,                                     KC_CIRC, KC_AMPR, KC_ASTR, KC_LCBR, KC_RCBR, KC_EQL,
+      _______, KC_EXLM, KC_AT,   KC_LCBR, KC_RCBR, KC_PIPE,                                     _______, KC_LBRC, KC_RBRC, KC_LCBR, KC_RCBR, KC_PIPE,
+      KC_TAB,  KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,                                     KC_CIRC, KC_AMPR, KC_ASTR,  KC_EQL, KC_TILD, KC_GRV,
       _______, KC_PERC, KC_CIRC, KC_TILD, KC_DQUO, KC_TILD, _______, TO(_GAMING), _______, _______, KC_PLUS, KC_MINS, KC_TILD, KC_GRV, KC_BSLS, KC_PIPE,
-                                 _______, _______, KC_BSPC, KC_SPC, KC_EQL,  KC_EQL,  KC_SCLN, _______, _______, _______
+                                 _______, _______, KC_SPC, KC_SPC, KC_EQL,  KC_EQL,  KC_BSPC, _______, _______, _______
     ),
 /*
  * Raise Layer: Number keys, media, navigation
