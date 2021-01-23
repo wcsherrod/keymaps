@@ -68,6 +68,18 @@ bool get_retro_tapping(uint16_t keycode, keyrecord_t *record) {
     }
 }
 
+bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case MT(MOD_LCTL, KC_BSPC):
+            return false;
+        case LT(_RAISE, KC_BSPC):
+            return false;
+        default:
+            return true;
+    }
+}
+
+
 //layer switch and ctl+bspc
 
 uint16_t key_timer;
