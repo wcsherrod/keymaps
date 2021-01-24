@@ -55,11 +55,11 @@ enum layers {
 
 bool get_retro_tapping(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case MT(MOD_LCTL, KC_BSPC):
+        case MT(MOD_LCTL, KC_ENT):
             return false;
         case LT(_RAISE, KC_SPC):
             return false;
-        case LT(_LOWER, KC_ENT):
+        case LT(_LOWER, KC_BSPC):
             return false;
         case LT(_RAISE, KC_BSPC):
             return false;
@@ -70,7 +70,7 @@ bool get_retro_tapping(uint16_t keycode, keyrecord_t *record) {
 
 bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case MT(MOD_LCTL, KC_BSPC):
+        case LT(_LOWER, KC_BSPC):
             return false;
         case LT(_RAISE, KC_BSPC):
             return false;
@@ -142,8 +142,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_QWERTY] = LAYOUT(
       KC_ESC,       KC_Q,   KC_W,   KC_E,   KC_R,   KC_T,                                                    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_MINS,
       LSFT_T(KC_TAB),  LSFT_T(KC_A),   LCTL_T(KC_S),   KC_D,   KC_F,   KC_G,                                         KC_H,    KC_J,    KC_K,    RCTL_T(KC_L)  ,    RSFT_T(KC_SCLN), RSFT_T(KC_QUOT),
-      KC_LSPO,                 KC_Z,   KC_X,   KC_C,   KC_V,   KC_B,   LT(_LOWER, KC_DEL), KC_LALT, KC_LSFT, LT(_LOWER, KC_DEL), KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSPC,
-              KC_RCTL, KC_LGUI, MT(MOD_LCTL, KC_BSPC), LT(_RAISE, KC_SPC), LT(_LOWER, KC_ENT), KC_LGUI, LT(_RAISE, KC_BSPC), L_BACKW, KC_RGUI, TD(QUAD)
+      KC_LSPO,                 KC_Z,   KC_X,   KC_C,   KC_V,   KC_B,   LT(_LOWER, KC_DEL), KC_LALT, KC_LSFT, L_BACKW, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSPC,
+              KC_RCTL, KC_LGUI, LT(_LOWER, KC_BSPC), MT(MOD_LCTL, KC_SPC), LT(_LOWER, KC_ENT), KC_LGUI, LT(_RAISE, KC_BSPC), L_BACKW, KC_RGUI, TD(QUAD)
     ),
 
     //     [_QWERTY] = LAYOUT(
