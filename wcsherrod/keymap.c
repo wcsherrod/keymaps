@@ -14,8 +14,19 @@
  */
 #include QMK_KEYBOARD_H
 
-//Tap Dance 
+// Left-hand home row mods
+#define HOME_A LGUI_T(KC_A)
+#define HOME_S LALT_T(KC_S)
+#define HOME_D LSFT_T(KC_D)
+#define HOME_F LCTL_T(KC_F)
 
+// Right-hand home row mods
+#define HOME_J RCTL_T(KC_J)
+#define HOME_K RSFT_T(KC_K)
+#define HOME_L LALT_T(KC_L)
+#define HOME_SCLN RGUI_T(KC_SCLN)
+
+//Tap Dance 
 typedef struct {
     bool is_press_action;
     uint8_t state;
@@ -103,22 +114,30 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case LSFT_T(KC_A):
-            return TAPPING_TERM - 100;
-        case RSFT_T(KC_SCLN):
-            return TAPPING_TERM - 100;
-        case LCTL_T(KC_S):
-            return TAPPING_TERM - 100;
-        case RCTL_T(KC_L):
-            return TAPPING_TERM - 100;
-        case KC_LSPO:
-            return TAPPING_TERM - 100;
-        case KC_RSPC:
-            return TAPPING_TERM - 100;
-        case RSFT_T(KC_QUOT):
-            return TAPPING_TERM - 100;
-        case LSFT_T(KC_TAB):
-            return TAPPING_TERM - 100;
+            case HOME_A:
+                return TAPPING_TERM + 100;
+            case HOME_S:
+                return TAPPING_TERM + 100;
+            case HOME_L:
+                return TAPPING_TERM + 100;
+            case HOME_SCLN:
+                return TAPPING_TERM + 100;
+        // case LSFT_T(KC_A):
+        //     return TAPPING_TERM - 100;
+        // case RSFT_T(KC_SCLN):
+        //     return TAPPING_TERM - 100;
+        // case LCTL_T(KC_S):
+        //     return TAPPING_TERM - 100;
+        // case RCTL_T(KC_L):
+        //     return TAPPING_TERM - 100;
+        // case KC_LSPO:
+        //     return TAPPING_TERM - 100;
+        // case KC_RSPC:
+        //     return TAPPING_TERM - 100;
+        // case RSFT_T(KC_QUOT):
+        //     return TAPPING_TERM - 100;
+        // case LSFT_T(KC_TAB):
+        //     return TAPPING_TERM - 100;
         default:
             return TAPPING_TERM;
     }   
@@ -140,8 +159,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                        `----------------------------------'  `----------------------------------'
  */
     [_QWERTY] = LAYOUT(
-      KC_ESC,       KC_Q,   KC_W,   KC_E,   KC_R,   KC_T,                                                    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_MINS,
-      LSFT_T(KC_TAB),  LSFT_T(KC_A),   LCTL_T(KC_S),   KC_D,   KC_F,   KC_G,                                         KC_H,    KC_J,    KC_K,    RCTL_T(KC_L)  ,    RSFT_T(KC_SCLN), RSFT_T(KC_QUOT),
+      KC_ESC,       KC_Q,   KC_W,   KC_E,   KC_R,   KC_T,                                   KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_MINS,
+      LSFT_T(KC_TAB),  HOME_A, HOME_S, HOME_D, HOME_F, KC_G,                                KC_H, HOME_J, HOME_K, HOME_L, HOME_SCLN, RSFT_T(KC_QUOT),
       KC_LSPO,                 KC_Z,   KC_X,   KC_C,   KC_V,   KC_B,   LT(_LOWER, KC_DEL), KC_LALT, KC_LGUI, L_BACKW, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSPC,
               KC_RCTL, KC_LGUI, LT(_LOWER, KC_BSPC), LT(_RAISE, KC_SPC), MT(MOD_LCTL, KC_ENT), KC_LGUI, LT(_RAISE, KC_BSPC), L_BACKW, KC_RGUI, TD(QUAD)
     ),
@@ -151,7 +170,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //   KC_ESC,   LGUI_T(KC_A),   LALT_T(KC_S),   LCTL_T(KC_D),   LSFT_T(KC_F),   KC_G,                                         KC_H,    RSFT_T(KC_J),    RCTL_T(KC_K),    RALT_T(KC_L),    RGUI_T(KC_SCLN), KC_QUOT,
     //   KC_LSPO,                 KC_Z,   KC_X,   KC_C,   KC_V,   KC_B,   KC_DEL,   KC_LALT, KC_LSFT, KC_DEL, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSPC,
     //           KC_MPLY, KC_LGUI, LT(_LOWER, KC_BSPC), LT(_RAISE, KC_SPC), MT(MOD_LCTL,  KC_ENT), LCTL(KC_BSPC),  LT(_RAISE, KC_BSPC), LT(_LOWER, KC_ENT), KC_BSPC, KC_RALT
-    // ),
+    // ),||
 
 /*
  * Lower Layer: Symbols
@@ -168,9 +187,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                        `----------------------------------'  `----------------------------------'
  */
     [_LOWER] = LAYOUT(
-      _______, KC_EXLM, KC_AT,   KC_LCBR, KC_RCBR, KC_PIPE,                                     _______, KC_LBRC, KC_RBRC, KC_LCBR, KC_RCBR, KC_PIPE,
-      KC_TAB,  KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,                                     KC_CIRC, KC_AMPR, KC_ASTR,  KC_EQL, KC_TILD, KC_GRV,
-      _______, KC_PERC, KC_CIRC, KC_TILD, KC_DQUO, KC_TILD, _______, TO(_GAMING), _______, _______, KC_PLUS, KC_MINS, KC_TILD, KC_GRV, KC_BSLS, KC_PIPE,
+      _______, KC_EXLM, KC_AT,   KC_LCBR, KC_RCBR, KC_PIPE,                                     _______, KC_LBRC, KC_RBRC, KC_LCBR, KC_RCBR, KC_PLUS,
+      KC_TAB,  KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,                                     KC_CIRC, KC_AMPR, KC_ASTR,  KC_PLUS, KC_EQL, KC_GRV,
+      _______, KC_PERC, KC_CIRC, KC_LBRC, KC_RBRC, KC_TILD, _______, TO(_GAMING), _______, _______, KC_PIPE, KC_MINS, KC_TILD, KC_GRV, KC_BSLS, KC_PIPE,
                                  _______, _______, KC_SPC, KC_SPC, KC_EQL,  KC_EQL,  KC_BSPC, _______, _______, _______
     ),
 /*
