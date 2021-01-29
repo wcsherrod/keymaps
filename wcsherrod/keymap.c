@@ -15,16 +15,16 @@
 #include QMK_KEYBOARD_H
 
 // Left-hand home row mods
-#define HOME_A LGUI_T(KC_A)
+#define HOME_A LT(_LOWER, KC_A)
 #define HOME_S LALT_T(KC_S)
-#define HOME_D LSFT_T(KC_D)
-#define HOME_F LCTL_T(KC_F)
+#define HOME_D LCTL_T(KC_D)
+#define HOME_F LSFT_T(KC_F)
 
 // Right-hand home row mods
-#define HOME_J RCTL_T(KC_J)
-#define HOME_K RSFT_T(KC_K)
+#define HOME_J RSFT_T(KC_J)
+#define HOME_K RCTL_T(KC_K)
 #define HOME_L LALT_T(KC_L)
-#define HOME_SCLN RGUI_T(KC_SCLN)
+#define HOME_SCLN LT(_LOWER, KC_SCLN)
 
 //Tap Dance 
 typedef struct {
@@ -114,38 +114,20 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-            // case HOME_A:
-            //     return TAPPING_TERM + 50;
-            // case HOME_S:
-            //     return TAPPING_TERM + 50;
-            // case HOME_L:
-            //     return TAPPING_TERM + 50;
-            // case HOME_SCLN:
-            //     return TAPPING_TERM + 50;
+            case HOME_A:
+                return TAPPING_TERM + 50;
+            case HOME_S:
+                return TAPPING_TERM + 50;
+            case HOME_L:
+                return TAPPING_TERM + 50;
+            case HOME_SCLN:
+                return TAPPING_TERM + 50;
             case LT(_RAISE, KC_SPC):
                 return TAPPING_TERM + 50;
             case LT(_LOWER, KC_BSPC):
                 return TAPPING_TERM + 50;
-  
-
-        // case LSFT_T(KC_A):
-        //     return TAPPING_TERM - 100;
-        // case RSFT_T(KC_SCLN):
-        //     return TAPPING_TERM - 100;
-        // case LCTL_T(KC_S):
-        //     return TAPPING_TERM - 100;
-        // case RCTL_T(KC_L):
-        //     return TAPPING_TERM - 100;
-        // case KC_LSPO:
-        //     return TAPPING_TERM - 100;
-        // case KC_RSPC:
-        //     return TAPPING_TERM - 100;
-        // case RSFT_T(KC_QUOT):
-        //     return TAPPING_TERM - 100;
-        // case LSFT_T(KC_TAB):
-        //     return TAPPING_TERM - 100;
-        default:
-            return TAPPING_TERM;
+            default:
+                return TAPPING_TERM;
     }   
 }
 
