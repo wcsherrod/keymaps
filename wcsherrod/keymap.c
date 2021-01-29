@@ -59,7 +59,8 @@ enum layers {
     _LOWER,
     _RAISE,
     _ADJUST,
-    _GAMING
+    _GAMING,
+    _NUM
 };
 
 // retro tapping per key
@@ -149,8 +150,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_QWERTY] = LAYOUT(
       KC_ESC,       KC_Q,   KC_W,   KC_E,   KC_R,   KC_T,                                   KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_MINS,
       LSFT_T(KC_TAB),  HOME_A, HOME_S, HOME_D, HOME_F, KC_G,                                KC_H, HOME_J, HOME_K, HOME_L, HOME_SCLN, RSFT_T(KC_QUOT),
-      KC_LSPO,                 KC_Z,   KC_X,   KC_C,   KC_V,   KC_B,   LT(_LOWER, KC_DEL), KC_LALT, KC_LGUI, L_BACKW, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSPC,
-              KC_RCTL, KC_LGUI, LT(_LOWER, KC_BSPC), LT(_RAISE, KC_SPC), MT(MOD_LCTL, KC_ENT), KC_LGUI, LT(_RAISE, KC_BSPC), L_BACKW, KC_RGUI, TD(QUAD)
+      KC_LSPO,                 KC_Z,   KC_X,   KC_C,   KC_V,   KC_B,   LT(_NUM, KC_DEL), KC_LALT, KC_LGUI, L_BACKW, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSPC,
+              KC_RCTL, KC_LGUI, LT(_LOWER, KC_BSPC), LT(_RAISE, KC_SPC), MT(MOD_LCTL, KC_ENT), L_BACKW, LT(_RAISE, KC_BSPC), LGUI_T(KC_DEL), KC_RGUI, TD(QUAD)
     ),
 
     //     [_QWERTY] = LAYOUT(
@@ -221,6 +222,26 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_LSFT, KC_Z,   KC_X,     KC_C,   KC_V,     KC_B,     KC_DEL, KC_LALT,       KC_LGUI, L_BACKW, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSPC,
                                  KC_ESC,   KC_M,   KC_BSPC,  KC_SPC, KC_ENT,        KC_LGUI, LT(_RAISE, KC_BSPC), L_BACKW, KC_RGUI, TD(QUAD)
     ),
+
+/* Numpad Layer: Functions, Numbers
+ *
+ * ,-------------------------------------------.                              ,-------------------------------------------.
+ * |        |      | F7   | F8   | F9   |      |                              |      | 7 &  | 8 *  | 9 (  | - _  |        |
+ * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
+ * |        |      | F4   | F5   | F6   |      |                              |      | 4 *  | 5 %  | 6 ^  | = +  | RCTL   |
+ * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
+ * |        |      | F1   | F2   | F3   |      |      |      |  |      |      |      | 1 !  | 2 @  | 3 #  | \ |  |        |
+ * `----------------------+------+------+------+------+------|  |------+------+------+------+------+----------------------'
+ *                        |      |      |      |      |      |  |      |      | 0 )  |      |      |
+ *                        |      |      |      |      |      |  |      |      |      |      |      |
+ *                        `----------------------------------'  `----------------------------------'
+ */
+    [_NUM] = LAYOUT(
+      _______, _______, KC_F7,   KC_F8,   KC_F9,   _______,                                     KC_SLSH, KC_7,    KC_8,    KC_9,    KC_ASTR, _______,
+      _______, _______, KC_F4,   KC_F5,   KC_F6,   _______,                                     _______, KC_4,    KC_5,    KC_6,    KC_PLUS, KC_RCTL,
+      _______, _______, KC_F1,   KC_F2,   KC_F3,   _______, _______, _______, _______, _______, _______, KC_1,    KC_2,    KC_3,    KC_ENT,  _______,
+                                 _______, _______, _______, _______, _______, KC_ENT,  KC_BSPC,    KC_0,    _______, _______
+    ),  
 /*
  * Adjust Layer: Function keys, RGB
  *
