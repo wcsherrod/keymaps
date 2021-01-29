@@ -62,20 +62,20 @@ enum layers {
     _GAMING
 };
 
-//retro tapping per key
+// retro tapping per key
 
 bool get_retro_tapping(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case MT(MOD_LCTL, KC_ENT):
-            return false;
-        case LT(_RAISE, KC_SPC):
-            return false;
-        case LT(_LOWER, KC_BSPC):
-            return false;
-        case LT(_RAISE, KC_BSPC):
-            return false;
-        default:
             return true;
+        case LT(_RAISE, KC_SPC):
+            return true;
+        case LT(_LOWER, KC_BSPC):
+            return true;
+        case LT(_RAISE, KC_BSPC):
+            return true;
+        default:
+            return false;
     }
 }
 
@@ -114,18 +114,18 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-            case HOME_A:
-                return TAPPING_TERM + 100;
-            case HOME_S:
-                return TAPPING_TERM + 100;
-            case HOME_L:
-                return TAPPING_TERM + 100;
-            case HOME_SCLN:
-                return TAPPING_TERM + 100;
+            // case HOME_A:
+            //     return TAPPING_TERM + 50;
+            // case HOME_S:
+            //     return TAPPING_TERM + 50;
+            // case HOME_L:
+            //     return TAPPING_TERM + 50;
+            // case HOME_SCLN:
+            //     return TAPPING_TERM + 50;
             case LT(_RAISE, KC_SPC):
-                return TAPPING_TERM + 100;
+                return TAPPING_TERM + 50;
             case LT(_LOWER, KC_BSPC):
-                return TAPPING_TERM + 100;
+                return TAPPING_TERM + 50;
   
 
         // case LSFT_T(KC_A):
