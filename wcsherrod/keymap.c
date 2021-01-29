@@ -122,6 +122,12 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
                 return TAPPING_TERM + 100;
             case HOME_SCLN:
                 return TAPPING_TERM + 100;
+            case LT(_RAISE, KC_SPC):
+                return TAPPING_TERM + 100;
+            case LT(_LOWER, KC_BSPC):
+                return TAPPING_TERM + 100;
+  
+
         // case LSFT_T(KC_A):
         //     return TAPPING_TERM - 100;
         // case RSFT_T(KC_SCLN):
@@ -189,7 +195,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_LOWER] = LAYOUT(
       _______, KC_EXLM, KC_AT,   KC_LCBR, KC_RCBR, KC_PIPE,                                     _______, KC_LBRC, KC_RBRC, KC_LCBR, KC_RCBR, KC_PLUS,
       KC_TAB,  KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,                                     KC_CIRC, KC_AMPR, KC_ASTR,  KC_PLUS, KC_EQL, KC_GRV,
-      _______, KC_PERC, KC_CIRC, KC_LBRC, KC_RBRC, KC_TILD, _______, TO(_GAMING), _______, _______, KC_PIPE, KC_MINS, KC_TILD, KC_GRV, KC_BSLS, KC_PIPE,
+      _______, KC_PERC, KC_CIRC, KC_LBRC, KC_RBRC, KC_QUOT, _______, TO(_GAMING), _______, _______, KC_PIPE, KC_MINS, KC_TILD, KC_GRV, KC_BSLS, KC_PIPE,
                                  _______, _______, KC_SPC, KC_SPC, KC_EQL,  KC_EQL,  KC_BSPC, _______, _______, _______
     ),
 /*
@@ -228,10 +234,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                        `----------------------------------'  `----------------------------------'
  */
     [_GAMING] = LAYOUT(
-      KC_DOT,   KC_T,   KC_Q,   KC_W,   KC_E,   KC_R,                                            KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    TO(_QWERTY),
-      KC_TAB,   KC_G,   KC_A,   KC_S,   KC_D,   KC_F,                                            KC_H,    RSFT_T(KC_J),    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
-      KC_LSPO,  KC_B,   KC_Z,   KC_X,   KC_C,   KC_V,   KC_DEL,   KC_LALT, KC_LSFT, KC_DEL, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSPC,
-                                KC_ESC, KC_M, KC_LSFT, KC_SPC, KC_LCTL, KC_BSPC,  LT(_RAISE, KC_BSPC), LT(_LOWER, KC_ENT), KC_BSPC, TD(QUAD)
+      KC_DOT,  KC_Q,   KC_W,     KC_E,   KC_R,     KC_T,                                              KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    TO(_QWERTY),
+      KC_TAB,  KC_A,   KC_S,     KC_D,   KC_F,     KC_G,                                              KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN,    KC_QUOT,
+      KC_LSFT, KC_Z,   KC_X,     KC_C,   KC_V,     KC_B,     KC_DEL, KC_LALT,       KC_LGUI, L_BACKW, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSPC,
+                                 KC_ESC,   KC_M,   KC_BSPC,  KC_SPC, KC_ENT,        KC_LGUI, LT(_RAISE, KC_BSPC), L_BACKW, KC_RGUI, TD(QUAD)
     ),
 /*
  * Adjust Layer: Function keys, RGB

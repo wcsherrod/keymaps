@@ -39,7 +39,7 @@
 // #define TAPPING_TERM  250
 // set per key to -100 for home row
 
-#define TAPPING_TERM  150
+#define TAPPING_TERM  125
 #define TAPPING_TERM_PER_KEY
 
 // Allows to use either side as the master. Look at the documentation for info:
