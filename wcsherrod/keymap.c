@@ -67,8 +67,6 @@ enum layers {
 
 bool get_retro_tapping(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case MT(MOD_LCTL, KC_ENT):
-            return true;
         case LT(_RAISE, KC_SPC):
             return true;
         case LT(_LOWER, KC_BSPC):
@@ -85,6 +83,10 @@ bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
         case LT(_LOWER, KC_BSPC):
             return false;
         case LT(_RAISE, KC_BSPC):
+            return false;
+        case HOME_J:
+            return false;
+        case HOME_K:
             return false;
         default:
             return true;
@@ -115,14 +117,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-            case HOME_A:
-                return TAPPING_TERM + 50;
-            case HOME_S:
-                return TAPPING_TERM + 50;
-            case HOME_L:
-                return TAPPING_TERM + 50;
-            case HOME_SCLN:
-                return TAPPING_TERM + 50;
+            // case HOME_A:
+            //     return TAPPING_TERM + 50;
+            // case HOME_S:
+            //     return TAPPING_TERM + 50;
+            // case HOME_L:
+            //     return TAPPING_TERM + 50;
+            // case HOME_SCLN:
+            //     return TAPPING_TERM + 50;
             case LT(_RAISE, KC_SPC):
                 return TAPPING_TERM + 50;
             case LT(_LOWER, KC_BSPC):
@@ -176,7 +178,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                        `----------------------------------'  `----------------------------------'
  */
     [_LOWER] = LAYOUT(
-      _______, KC_EXLM, KC_AT,   KC_LCBR, KC_RCBR, KC_PIPE,                                     _______, KC_LBRC, KC_RBRC, KC_LCBR, KC_RCBR, KC_PLUS,
+      _______, KC_EXLM, KC_AT,   KC_LCBR, KC_RCBR, KC_PIPE,                                     _______, KC_LBRC, KC_RBRC, KC_LCBR, KC_RCBR, KC_MINS,
       KC_TAB,  KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,                                     KC_CIRC, KC_AMPR, KC_ASTR,  KC_PLUS, KC_EQL, KC_GRV,
       _______, KC_PERC, KC_CIRC, KC_LBRC, KC_RBRC, KC_QUOT, _______, TO(_GAMING), _______, _______, KC_PIPE, KC_MINS, KC_TILD, KC_GRV, KC_BSLS, KC_PIPE,
                                  _______, _______, KC_SPC, KC_SPC, KC_EQL,  KC_EQL,  KC_BSPC, _______, _______, _______
@@ -198,7 +200,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_RAISE] = LAYOUT(
       _______, KC_1, 	  KC_2,    KC_3,    KC_4,    KC_5,                                        KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    _______,
       _______, _______, KC_LEFT, KC_UP, KC_DOWN, KC_RGHT,                                     KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _______, _______,
-      KC_LSPO, _______, _______, KC_MS_BTN2, KC_MS_BTN1, KC_MPRV, KC_MNXT, _______, _______, _______, _______, _______, KC_COMM, KC_DOT, KC_SLSH, KC_RSPC,
+      KC_LSPO, _______, _______, KC_MS_BTN2, KC_MS_BTN1, KC_MPRV, KC_MNXT, _______, _______, _______, _______, KC_PGDOWN, KC_PGUP, KC_DOT, KC_SLSH, KC_RSPC,
                                  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
     ),
 
@@ -220,7 +222,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_DOT,  KC_Q,   KC_W,     KC_E,   KC_R,     KC_T,                                              KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    TO(_QWERTY),
       KC_TAB,  KC_A,   KC_S,     KC_D,   KC_F,     KC_G,                                              KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN,    KC_QUOT,
       KC_LSFT, KC_Z,   KC_X,     KC_C,   KC_V,     KC_B,     KC_DEL, KC_LALT,       KC_LGUI, L_BACKW, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSPC,
-                                 KC_ESC,   KC_M,   KC_BSPC,  KC_SPC, KC_ENT,        KC_LGUI, LT(_RAISE, KC_BSPC), L_BACKW, KC_RGUI, TD(QUAD)
+                                 KC_ESC,   KC_M,   KC_SLSH,  KC_SPC, KC_QUOT,        KC_ENT, LT(_RAISE, KC_BSPC), L_BACKW, KC_RGUI, TD(QUAD)
     ),
 
 /* Numpad Layer: Functions, Numbers
