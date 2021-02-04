@@ -129,8 +129,8 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
                 return TAPPING_TERM + 50;
             case LT(_LOWER, KC_BSPC):
                 return TAPPING_TERM + 50;
-            case TD(QUAD):
-                return TAPPING_TERM + 100;
+            // case TD(QUAD):
+            //     return TAPPING_TERM + 100;
             default:
                 return TAPPING_TERM;
     }   
@@ -540,7 +540,7 @@ void x_finished(qk_tap_dance_state_t *state, void *user_data) {
         case SINGLE_TAP: register_code(KC_MPLY); break;
         case SINGLE_HOLD: register_code(KC_MUTE); break;
         case DOUBLE_TAP: register_code(KC_MNXT); break;
-        case DOUBLE_HOLD: register_code(KC_MPRV); break;
+        case TRIPLE_TAP: register_code(KC_MPRV); break;
         // Last case is for fast typing. Assuming your key is `f`:
         // For example, when typing the word `buffer`, and you want to make sure that you send `ff` and not `Esc`.
         // In order to type `ff` when typing fast, the next character will have to be hit within the `TAPPING_TERM`, which by default is 200ms.
@@ -553,14 +553,14 @@ void x_reset(qk_tap_dance_state_t *state, void *user_data) {
         case SINGLE_TAP: unregister_code(KC_MPLY); break;
         case SINGLE_HOLD: unregister_code(KC_MUTE); break;
         case DOUBLE_TAP: unregister_code(KC_MNXT); break;
-        case DOUBLE_HOLD: unregister_code(KC_MPRV);
+        case TRIPLE_TAP: unregister_code(KC_MPRV);
         case DOUBLE_SINGLE_TAP: unregister_code(KC_MPLY);
     }
     xtap_state.state = 0;
 }
 
 qk_tap_dance_action_t tap_dance_actions[] = {
-    [QUAD] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, x_finished, x_reset)
+    [QUAD] = ACTION_TAP_DANCE_FN_ADVANCED_TIME(NULL, x_finished, x_reset, 300)
 };
 
 
