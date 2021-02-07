@@ -66,18 +66,18 @@ enum layers {
 
 // retro tapping per key
 
-bool get_retro_tapping(uint16_t keycode, keyrecord_t *record) {
-    switch (keycode) {
-        // case LT(_RAISE, KC_SPC):
-        //     return true;
-        case LT(_LOWER, KC_BSPC):
-            return true;
-        case LT(_RAISE, KC_BSPC):
-            return true;
-        default:
-            return false;
-    }
-}
+// bool get_retro_tapping(uint16_t keycode, keyrecord_t *record) {
+//     switch (keycode) {
+//         // case LT(_RAISE, KC_SPC):
+//         //     return true;
+//         case LT(_LOWER, KC_BSPC):
+//             return true;
+//         case LT(_RAISE, KC_BSPC):
+//             return true;
+//         default:
+//             return false;
+//     }
+// }
 
 bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
@@ -202,8 +202,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
     [_RAISE] = LAYOUT(
       _______, KC_1, 	  KC_2,    KC_3,    KC_4,    KC_5,                                        KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    _______,
-      _______, KC_HOME, KC_MS_WH_DOWN, KC_MS_WH_UP, KC_MS_BTN1, KC_MS_BTN2,                                     KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _______, _______,
-      KC_LSPO, _______, _______, KC_MS_BTN2, KC_MS_BTN1, KC_MPRV, KC_MNXT, _______, _______, _______, _______, KC_PGDOWN, KC_PGUP, KC_DOT, KC_SLSH, KC_RSPC,
+      _______, KC_MS_BTN4, KC_MS_WH_DOWN, KC_MS_WH_UP, KC_MS_BTN1, KC_MS_BTN2,                                     KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _______, _______,
+      KC_LSPO, _______, _______, KC_MS_BTN2, KC_MS_BTN1, RCS(KC_Z), RCTL(KC_Z), _______, _______, _______, _______, KC_PGDOWN, KC_PGUP, KC_DOT, KC_SLSH, KC_RSPC,
                                  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
     ),
 
