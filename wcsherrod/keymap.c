@@ -66,18 +66,18 @@ enum layers {
 
 // retro tapping per key
 
-// bool get_retro_tapping(uint16_t keycode, keyrecord_t *record) {
-//     switch (keycode) {
-//         // case LT(_RAISE, KC_SPC):
-//         //     return true;
-//         case LT(_LOWER, KC_BSPC):
-//             return true;
-//         case LT(_RAISE, KC_BSPC):
-//             return true;
-//         default:
-//             return false;
-//     }
-// }
+bool get_retro_tapping(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        // case LT(_RAISE, KC_SPC):
+        //     return true;
+        case MT(MOD_LCTL, KC_ENT):
+            return true;
+        // case LT(_RAISE, KC_BSPC):
+        //     return true;
+        default:
+            return false;
+    }
+}
 
 bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
