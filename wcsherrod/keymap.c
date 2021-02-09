@@ -81,9 +81,11 @@ bool get_retro_tapping(uint16_t keycode, keyrecord_t *record) {
 
 bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case LT(_LOWER, KC_BSPC):
+        case LGUI_T(KC_DEL):
             return false;
-        case LT(_RAISE, KC_BSPC):
+        case LT(_NAV, KC_BSPC):
+            return false;
+        case LT(_NAV, KC_SPC):
             return false;
         case HOME_J:
             return false;
@@ -158,7 +160,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_ESC,       KC_Q,   KC_W,   KC_E,   KC_R,   KC_T,                                   KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_MINS,
       LSFT_T(KC_TAB),  HOME_A, HOME_S, HOME_D, HOME_F, KC_G,                                KC_H, HOME_J, HOME_K, HOME_L, HOME_SCLN, RSFT_T(KC_QUOT),
       KC_LSPO, KC_Z,   KC_X,   KC_C,   KC_V,   KC_B,   KC_LGUI, KC_MS_BTN2, KC_CAPS, KC_LGUI, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSPC,
-              KC_RCTL, KC_LGUI, LT(_NUM, KC_TAB), LT(_NAV, KC_SPC), LT(_RAISE, KC_ENT), L_BACKW, LT(_NAV, KC_BSPC), LGUI_T(KC_DEL), KC_RGUI, TD(QUAD)
+              KC_BSPC, KC_LGUI, LT(_NUM, KC_TAB), LT(_NAV, KC_SPC), LT(_RAISE, KC_ENT), L_BACKW, LT(_NAV, KC_BSPC), LGUI_T(KC_DEL), KC_RGUI, TD(QUAD)
     ),
 
     //     [_QWERTY] = LAYOUT(
@@ -185,7 +187,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_LOWER] = LAYOUT(
       _______, KC_EXLM, KC_AT,   KC_LCBR, KC_RCBR, KC_PIPE,                                     _______, KC_LBRC, KC_RBRC, KC_LCBR, KC_RCBR, KC_MINS,
       KC_TAB,  KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,                                     KC_CIRC, KC_AMPR, KC_ASTR,  KC_PLUS, KC_EQL, KC_GRV,
-      _______, KC_PERC, KC_CIRC, KC_LBRC, KC_RBRC, KC_QUOT, _______, TO(_GAMING), _______, _______, KC_PIPE, KC_MINS, KC_TILD, KC_GRV, KC_BSLS, KC_PIPE,
+      _______, KC_PERC, KC_CIRC, KC_LBRC, KC_RBRC, KC_QUOT, _______, _______, _______, _______, KC_PIPE, KC_MINS, KC_TILD, KC_GRV, KC_BSLS, KC_PIPE,
                                  _______, _______, _______, KC_SPC, _______,  KC_EQL,  KC_BSPC, _______, _______, _______
     ),
 /*
