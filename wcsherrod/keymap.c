@@ -58,10 +58,10 @@ enum layers {
     _QWERTY = 0,
     _LOWER,
     _RAISE,
-    _ADJUST,
-    _GAMING,
     _NUM,
-    _NAV
+    _NAV,
+    _ADJUST,
+    _GAMING
 };
 
 // retro tapping per key
@@ -156,7 +156,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_ESC,       KC_Q,   KC_W,   KC_E,   KC_R,   KC_T,                                   KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_MINS,
       LSFT_T(KC_TAB),  HOME_A, HOME_S, HOME_D, HOME_F, KC_G,                                KC_H, HOME_J, HOME_K, HOME_L, HOME_SCLN, RSFT_T(KC_QUOT),
       KC_LSPO, KC_Z,   KC_X,   KC_C,   KC_V,   KC_B,   KC_LGUI, KC_MS_BTN2, KC_CAPS, KC_LGUI, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSPC,
-              KC_RCTL, KC_LGUI, LT(_NUM, KC_TAB), LT(_NAV, KC_SPC), LT(_RAISE, KC_ENT), L_BACKW, LT(_RAISE, KC_BSPC), LGUI_T(KC_DEL), KC_RGUI, TD(QUAD)
+              KC_RCTL, KC_LGUI, LT(_NUM, KC_TAB), LT(_NAV, KC_SPC), LT(_RAISE, KC_ENT), L_BACKW, LT(_NAV, KC_BSPC), LGUI_T(KC_DEL), KC_RGUI, TD(QUAD)
     ),
 
     //     [_QWERTY] = LAYOUT(
@@ -184,7 +184,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       _______, KC_EXLM, KC_AT,   KC_LCBR, KC_RCBR, KC_PIPE,                                     _______, KC_LBRC, KC_RBRC, KC_LCBR, KC_RCBR, KC_MINS,
       KC_TAB,  KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,                                     KC_CIRC, KC_AMPR, KC_ASTR,  KC_PLUS, KC_EQL, KC_GRV,
       _______, KC_PERC, KC_CIRC, KC_LBRC, KC_RBRC, KC_QUOT, _______, TO(_GAMING), _______, _______, KC_PIPE, KC_MINS, KC_TILD, KC_GRV, KC_BSLS, KC_PIPE,
-                                 _______, _______, KC_SPC, KC_SPC, KC_EQL,  KC_EQL,  KC_BSPC, _______, _______, _______
+                                 _______, _______, _______, KC_SPC, _______,  KC_EQL,  KC_BSPC, _______, _______, _______
     ),
 /*
  * Raise Layer: Number keys, media, navigation
@@ -203,7 +203,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_RAISE] = LAYOUT(
       _______, KC_1, 	  KC_2,    KC_3,    KC_4,    KC_5,                                        KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    _______,
       KC_MS_BTN3, KC_MS_BTN4, KC_MS_WH_DOWN, KC_MS_WH_UP, KC_MS_BTN1, KC_MS_BTN2,                                     KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _______, _______,
-      KC_LSPO, RCTL(KC_Z), _______, RCTL(KC_C), RCTL(KC_V), RCTL(KC_Z), RCS(KC_Z), _______, _______, _______, _______, KC_PGDOWN, KC_PGUP, KC_DOT, KC_SLSH, KC_RSPC,
+      KC_LSPO, RCTL(KC_Z), _______, RCTL(KC_C), RCTL(KC_V), RCTL(KC_Z), RCS(KC_Z), TO(_GAMING), _______, _______, _______, KC_PGDOWN, KC_PGUP, KC_DOT, KC_SLSH, KC_RSPC,
                                  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
     ),
 
