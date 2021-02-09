@@ -126,9 +126,11 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
                 return TAPPING_TERM + 50;
             case HOME_SCLN:
                 return TAPPING_TERM + 50;
-            case LT(_RAISE, KC_SPC):
+            case LT(_RAISE, KC_ENT):
                 return TAPPING_TERM + 50;
-            case LT(_LOWER, KC_BSPC):
+            case LT(_NAV, KC_SPC):
+                return TAPPING_TERM + 50;
+            case LT(_NAV, KC_BSPC):
                 return TAPPING_TERM + 50;
             // case TD(QUAD):
             //     return TAPPING_TERM + 100;
