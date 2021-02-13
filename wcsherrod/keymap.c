@@ -15,16 +15,16 @@
 #include QMK_KEYBOARD_H
 
 // Left-hand home row mods
-#define HOME_A LT(_LOWER, KC_A)
-#define HOME_S LALT_T(KC_S)
+#define HOME_A LALT_T(KC_A)
+#define HOME_S LT(_LOWER, KC_S)
 #define HOME_D LSFT_T(KC_D)
 #define HOME_F LCTL_T(KC_F)
 
 // Right-hand home row mods
 #define HOME_J RCTL_T(KC_J)
 #define HOME_K RSFT_T(KC_K)
-#define HOME_L LALT_T(KC_L)
-#define HOME_SCLN LT(_LOWER, KC_SCLN)
+#define HOME_L LT(_LOWER, KC_L)
+#define HOME_SCLN LALT_T(KC_SCLN)
 
 //Tap Dance 
 typedef struct {
