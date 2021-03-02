@@ -83,9 +83,9 @@ bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case LGUI_T(KC_DEL):
             return false;
-        case LT(_NAV, KC_BSPC):
+        case LT(_LOWER, KC_BSPC):
             return false;
-        case LT(_NAV, KC_SPC):
+        case LT(_RAISE, KC_SPC):
             return false;
         case HOME_J:
             return false;
@@ -128,16 +128,16 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
                 return TAPPING_TERM + 50;
             case HOME_SCLN:
                 return TAPPING_TERM + 50;
-            case LT(_RAISE, KC_ENT):
+            case LT(_NAV, KC_ENT):
                 return TAPPING_TERM + 50;
-            case LT(_NAV, KC_SPC):
+            case LT(_RAISE, KC_SPC):
                 return TAPPING_TERM + 50;
-            case LT(_NAV, KC_BSPC):
+            case LT(_LOWER, KC_BSPC):
                 return TAPPING_TERM + 50;
             // case TD(QUAD):
             //     return TAPPING_TERM + 100;
             default:
-                return TAPPING_TERM;
+                return TAPPING_TERM; 
     }   
 }
 
@@ -160,7 +160,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_ESC,       KC_Q,   KC_W,   KC_E,   KC_R,   KC_T,                                   KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_MINS,
       LSFT_T(KC_TAB),  HOME_A, HOME_S, HOME_D, HOME_F, KC_G,                                KC_H, HOME_J, HOME_K, HOME_L, HOME_SCLN, RSFT_T(KC_QUOT),
       KC_LSPO, KC_Z,   KC_X,   KC_C,   KC_V,   KC_B,   KC_LGUI, KC_LGUI, KC_CAPS, KC_LGUI, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSPC,
-              KC_BSPC, KC_LGUI, LT(_NUM, KC_TAB), LT(_RAISE, KC_SPC), LT(_NAV, KC_ENT), L_BACKW, LT(_NAV, KC_BSPC), LGUI_T(KC_DEL), KC_LGUI, TD(QUAD)
+              KC_BSPC, KC_LGUI, LT(_NUM, KC_TAB), LT(_RAISE, KC_SPC), LT(_NAV, KC_ENT), L_BACKW, LT(_LOWER, KC_BSPC), LGUI_T(KC_DEL), KC_LGUI, TD(QUAD)
     ),
 
     //     [_QWERTY] = LAYOUT(
@@ -270,7 +270,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       _______, _______, KC_F7,   KC_F8,   KC_F9,   _______,                                     KC_SLSH, KC_7,    KC_8,    KC_9,    KC_ASTR, _______,
       _______, _______, KC_F4,   KC_F5,   KC_F6,   _______,                                     _______, KC_4,    KC_5,    KC_6,    KC_PLUS, KC_RCTL,
       _______, _______, KC_F1,   KC_F2,   KC_F3,   _______, _______, _______, _______, _______, _______, KC_1,    KC_2,    KC_3,    _______,  _______,
-                                 _______, _______, _______, _______, _______, KC_ENT,  KC_BSPC,    KC_0,    _______, _______
+                                 _______, _______, _______, _______, _______, KC_0,  KC_0,    KC_0,    _______, _______
     ),  
 /*
  * Adjust Layer: Function keys, RGB
